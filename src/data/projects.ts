@@ -12,6 +12,8 @@ export type Project = {
   live?: string;
   accent: "emerald" | "violet" | "blue" | "amber";
   featured?: boolean;
+  image?: string;
+  imageAlt?: string;
 };
 
 export const projects: Project[] = [
@@ -29,9 +31,22 @@ export const projects: Project[] = [
       "Recipe filtering",
       "Authentication",
     ],
-    technologies: ["React", "JavaScript", "Node.js", "Express", "MongoDB", "Redux Toolkit"],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Payload CMS",
+      "Supabase",
+      "PostgreSQL",
+      "Prisma",
+    ],
+    image: "/projects/tasteorama-preview.webp",
+    imageAlt: "Tasteorama recipe discovery application",
+
     github: "https://github.com/Slavik756/Response-201-Front",
     githubBackend: "https://github.com/Slavik756/Response-201-back",
+    live: "https://tasteorama-tau.vercel.app/",
     accent: "emerald",
     featured: true,
   },
@@ -52,7 +67,6 @@ export const projects: Project[] = [
     technologies: ["Java", "Spring Boot", "PostgreSQL", "Spring Security", "Flyway", "Docker"],
     github: "https://github.com/MaksymChalyi/Verdora-backend",
     accent: "violet",
-    featured: true,
   },
   {
     id: "powergym",
@@ -68,8 +82,14 @@ export const projects: Project[] = [
       "Booking validation",
       "LocalStorage",
     ],
-    technologies: ["JavaScript", "HTML5", "CSS3", "Responsive Design"],
+    technologies: ["HTML5", "CSS3", "JavaScript", "Vite", "LocalStorage"],
+    image: "/projects/powergym-real-preview.webp",
+    imageAlt: "PowerGym fitness website with dark design and lime green accents",
+
+    github: "https://github.com/Slavik756/Gym",
+    live: "https://gym-orpin-mu.vercel.app/",
     accent: "blue",
+    featured: true,
   },
   {
     id: "tradeblade",
@@ -80,8 +100,39 @@ export const projects: Project[] = [
       "A modern responsive landing page with carefully structured components, interactive elements, and a clean visual interface.",
     role: "Frontend Developer",
     highlights: ["Responsive layout", "Interactive UI", "Semantic HTML", "CSS architecture"],
-    technologies: ["HTML5", "CSS3", "JavaScript"],
+    technologies: ["HTML5", "CSS3", "JavaScript", "Vite", "Playwright"],
+    image: "/projects/tradeblade-preview.webp",
+    imageAlt: "TradeBlade responsive trading service landing page",
+
     github: "https://github.com/Slavik756/TradeBlade",
+    live: "https://tradeblade-pi.vercel.app/",
     accent: "amber",
+  },
+  {
+    id: "elvira-nails",
+    number: "05",
+    title: "Elvira Nails",
+    category: "Fullstack Web Application · In Development",
+    description:
+      "A team-developed website for a nail studio and training academy in the Netherlands. Built with Next.js, TypeScript, PostgreSQL and Payload CMS, featuring multilingual content management and student case studies.",
+    role: "Fullstack Developer",
+    highlights: [
+      "Frontend and backend development",
+      "Payload CMS integration",
+      "Multilingual content management",
+      "PostgreSQL and Prisma",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Payload CMS",
+      "Supabase",
+      "PostgreSQL",
+      "Prisma",
+    ],
+    github: "https://github.com/ElviraNailsProject/elvira-nails-web",
+    accent: "emerald",
   },
 ];

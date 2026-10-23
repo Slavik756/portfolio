@@ -15,6 +15,8 @@ import { FaGithub } from "react-icons/fa";
 
 import type { Project } from "@/data/projects";
 
+import Image from "next/image";
+
 type ProjectCardProps = {
   project: Project;
   index: number;
@@ -49,6 +51,33 @@ const themes = {
 
 function ProjectVisual({ project }: { project: Project }) {
   const theme = themes[project.accent];
+
+  // Show real project screenshots when available
+  if (project.image) {
+    return (
+      <div className="relative h-64 overflow-hidden border-b border-white/10 bg-[#101513] sm:h-72">
+        <Image
+          src={project.image}
+          alt={project.imageAlt ?? `${project.title} website screenshot`}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        />
+
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+        <span className="absolute bottom-4 left-5 rounded-md border border-white/10 bg-black/70 px-3 py-1.5 font-mono text-[10px] tracking-widest text-white backdrop-blur-md">
+          PROJECT / {project.number}
+        </span>
+
+        {project.featured && (
+          <span className="absolute top-4 right-4 rounded-full border border-emerald-400/20 bg-[#07110c]/90 px-3 py-1.5 text-[10px] font-medium text-emerald-300">
+            FEATURED
+          </span>
+        )}
+      </div>
+    );
+  }
 
   const icons = {
     tasteorama: Code2,
