@@ -23,23 +23,18 @@ export default function Projects() {
         transition={{ duration: reducedMotion ? 0 : 0.6 }}
         className="mb-16"
       >
-        <p className="mb-4 font-mono text-sm text-emerald-400">
-          02 / SELECTED WORK
-        </p>
+        <p className="mb-4 font-mono text-sm text-emerald-400">02 / SELECTED WORK</p>
 
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <h2
-              id="projects-title"
-              className="text-4xl font-bold tracking-tight sm:text-5xl"
-            >
+            <h2 id="projects-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
               Featured Projects
               <span className="text-emerald-400">.</span>
             </h2>
 
             <p className="mt-5 max-w-xl text-base leading-8 text-zinc-400">
-              A collection of projects where I explore modern technologies,
-              solve real problems, and turn ideas into functional applications.
+              A collection of projects where I explore modern technologies, solve real problems, and
+              turn ideas into functional applications.
             </p>
           </div>
 
@@ -52,7 +47,7 @@ export default function Projects() {
             View all on GitHub
             <ArrowUpRight
               size={18}
-              className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
+              className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
             />
           </a>
         </div>
@@ -79,9 +74,7 @@ export default function Projects() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-white">
-              More projects on GitHub
-            </h3>
+            <h3 className="font-semibold text-white">More projects on GitHub</h3>
 
             <p className="mt-1 text-sm text-zinc-500">
               Explore my repositories and development journey.

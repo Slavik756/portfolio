@@ -72,9 +72,7 @@ function ProjectVisual({ project }: { project: Project }) {
       />
 
       {/* Glow */}
-      <div
-        className={`absolute h-60 w-60 rounded-full blur-[90px] ${theme.glow}`}
-      />
+      <div className={`absolute h-60 w-60 rounded-full blur-[90px] ${theme.glow}`} />
 
       {/* Decorative browser window */}
       <div className="relative w-[82%] max-w-[420px] origin-center rounded-xl border border-white/15 bg-[#151b19] shadow-[0_25px_65px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.03]">
@@ -121,7 +119,7 @@ function ProjectVisual({ project }: { project: Project }) {
       </span>
 
       {project.featured && (
-        <span className="absolute right-4 top-4 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] font-medium text-emerald-300">
+        <span className="absolute top-4 right-4 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] font-medium text-emerald-300">
           FEATURED
         </span>
       )}
@@ -149,15 +147,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="flex flex-1 flex-col p-6 sm:p-8">
         {/* Category */}
         <div className="mb-4 flex items-center justify-between gap-3">
-          <span
-            className={`font-mono text-xs uppercase tracking-widest ${theme.text}`}
-          >
+          <span className={`font-mono text-xs tracking-widest uppercase ${theme.text}`}>
             {project.category}
           </span>
 
-          <span className="font-mono text-xs text-zinc-600">
-            {project.number}
-          </span>
+          <span className="font-mono text-xs text-zinc-600">{project.number}</span>
         </div>
 
         {/* Title */}
@@ -172,13 +166,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         </p>
 
         {/* Description */}
-        <p className="mt-6 text-sm leading-7 text-zinc-400">
-          {project.description}
-        </p>
+        <p className="mt-6 text-sm leading-7 text-zinc-400">{project.description}</p>
 
         {/* Highlights */}
         <div className="mt-7">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+          <p className="mb-4 text-xs font-semibold tracking-widest text-zinc-500 uppercase">
             Key Features
           </p>
 
@@ -188,10 +180,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 key={highlight}
                 className="flex items-start gap-2 text-xs leading-5 text-zinc-400"
               >
-                <CheckCircle2
-                  size={15}
-                  className={`mt-0.5 shrink-0 ${theme.text}`}
-                />
+                <CheckCircle2 size={15} className={`mt-0.5 shrink-0 ${theme.text}`} />
 
                 <span>{highlight}</span>
               </div>
@@ -225,9 +214,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               <ArrowUpRight size={15} />
             </a>
           ) : (
-            <span className="text-xs text-zinc-600">
-              Source code available on request
-            </span>
+            <span className="text-xs text-zinc-600">Source code available on request</span>
           )}
 
           {project.githubBackend && (

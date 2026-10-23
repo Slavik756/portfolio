@@ -8,6 +8,7 @@ const navigation = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
+  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -79,10 +80,7 @@ export default function Header() {
             </span>
           </a>
 
-          <nav
-            aria-label="Main navigation"
-            className="hidden items-center gap-9 md:flex"
-          >
+          <nav aria-label="Main navigation" className="hidden items-center gap-9 md:flex">
             {navigation.map((item) => {
               const isActive = activeSection === item.href.slice(1);
               return (
@@ -91,9 +89,7 @@ export default function Header() {
                   href={item.href}
                   aria-current={isActive ? "location" : undefined}
                   className={`relative py-2 text-sm font-medium transition-colors ${
-                    isActive
-                      ? "text-emerald-400"
-                      : "text-zinc-400 hover:text-white"
+                    isActive ? "text-emerald-400" : "text-zinc-400 hover:text-white"
                   }`}
                 >
                   {item.name}
@@ -139,10 +135,7 @@ export default function Header() {
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-[#080b0a]/98 backdrop-blur-2xl md:hidden"
           >
-            <nav
-              aria-label="Mobile navigation"
-              className="flex flex-col items-center gap-8"
-            >
+            <nav aria-label="Mobile navigation" className="flex flex-col items-center gap-8">
               {navigation.map((item, index) => (
                 <motion.a
                   key={item.name}

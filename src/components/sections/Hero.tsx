@@ -62,7 +62,7 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-6 pb-24 pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:pt-28"
+      className="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-6 pt-36 pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:pt-28"
     >
       {/* Left side */}
       <div className="relative z-10">
@@ -78,7 +78,7 @@ export default function Hero() {
           </span>
 
           <span className="font-mono text-[11px] font-medium tracking-[0.15em] text-emerald-300 sm:text-xs">
-            OPEN TO OPPORTUNITIES
+            Open to Worldwide Opportunities
           </span>
         </motion.div>
 
@@ -89,7 +89,7 @@ export default function Hero() {
         <motion.h1
           id="hero-title"
           {...reveal(0.3)}
-          className="text-[clamp(3.4rem,8vw,6.4rem)] font-bold leading-[1.05] tracking-[-0.065em]"
+          className="text-[clamp(3.4rem,8vw,6.4rem)] leading-[1.05] font-bold tracking-[-0.065em]"
         >
           Viacheslav
           <br />
@@ -103,19 +103,13 @@ export default function Hero() {
           </p>
         </motion.div>
 
-        <motion.p
-          {...reveal(0.5)}
-          className="mt-7 max-w-[540px] text-base leading-8 text-zinc-400"
-        >
-          I create modern, responsive web applications with React, Next.js,
-          TypeScript and Node.js. I enjoy solving complex problems, writing
-          maintainable code and building meaningful digital experiences.
+        <motion.p {...reveal(0.5)} className="mt-7 max-w-[540px] text-base leading-8 text-zinc-400">
+          I create modern, responsive web applications with React, Next.js, TypeScript and Node.js.
+          I enjoy solving complex problems, writing maintainable code and building meaningful
+          digital experiences.
         </motion.p>
 
-        <motion.div
-          {...reveal(0.6)}
-          className="mt-10 flex flex-wrap items-center gap-4"
-        >
+        <motion.div {...reveal(0.6)} className="mt-10 flex flex-wrap items-center gap-4">
           <a href="#projects" className="primary-button group">
             Explore Projects
             <ArrowRight
@@ -126,19 +120,25 @@ export default function Hero() {
           </a>
 
           <a
-            href="/cv.pdf"
-            download="Viacheslav_Pokora_CV.pdf"
+            href="/cv-frontend.pdf"
+            download="Viacheslav_Pokora_Frontend_CV.pdf"
             className="secondary-button"
           >
             <Download size={17} aria-hidden="true" />
-            Download CV
+            Frontend CV
+          </a>
+
+          <a
+            href="/cv-fullstack.pdf"
+            download="Viacheslav_Pokora_Fullstack_CV.pdf"
+            className="secondary-button"
+          >
+            <Download size={17} aria-hidden="true" />
+            Fullstack CV
           </a>
         </motion.div>
 
-        <motion.div
-          {...reveal(0.7)}
-          className="mt-12 flex flex-wrap items-center gap-6"
-        >
+        <motion.div {...reveal(0.7)} className="mt-12 flex flex-wrap items-center gap-6">
           <a
             href="https://github.com/Slavik756"
             target="_blank"
@@ -216,7 +216,7 @@ export default function Hero() {
                 >
                   <span
                     aria-hidden="true"
-                    className="mr-5 inline-block w-5 select-none text-right text-zinc-600"
+                    className="mr-5 inline-block w-5 text-right text-zinc-600 select-none"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -232,16 +232,11 @@ export default function Hero() {
               ))}
 
               <motion.div {...reveal(1.6)} className="mt-5 flex min-w-max">
-                <span
-                  aria-hidden="true"
-                  className="mr-5 inline-block w-5 text-right text-zinc-600"
-                >
+                <span aria-hidden="true" className="mr-5 inline-block w-5 text-right text-zinc-600">
                   12
                 </span>
 
-                <span className="text-zinc-500">
-                  {"// Always learning. Always building."}
-                </span>
+                <span className="text-zinc-500">{"// Always learning. Always building."}</span>
               </motion.div>
             </div>
           </div>
@@ -280,11 +275,7 @@ export default function Hero() {
             <p className="text-xs text-zinc-500">Better Experiences</p>
           </div>
 
-          <ArrowUpRight
-            size={15}
-            className="ml-2 text-emerald-400"
-            aria-hidden="true"
-          />
+          <ArrowUpRight size={15} className="ml-2 text-emerald-400" aria-hidden="true" />
         </motion.div>
       </motion.div>
 
@@ -294,11 +285,7 @@ export default function Hero() {
         className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-zinc-500 transition-colors hover:text-emerald-400 lg:flex"
       >
         SCROLL TO EXPLORE
-        <ArrowDown
-          size={17}
-          className={reducedMotion ? "" : "animate-bounce"}
-          aria-hidden="true"
-        />
+        <ArrowDown size={17} className={reducedMotion ? "" : "animate-bounce"} aria-hidden="true" />
       </a>
     </section>
   );
