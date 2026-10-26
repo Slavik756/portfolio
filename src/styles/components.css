@@ -1,0 +1,65 @@
+/* Shared buttons */
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 15px 25px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Primary button */
+
+.primary-button {
+  background: var(--accent);
+  color: #06100b;
+  font-weight: 600;
+}
+
+.primary-button:hover {
+  background: var(--accent-light);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(52, 211, 153, 0.18);
+}
+
+/* Secondary button */
+
+.secondary-button {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  color: #e4e4e7;
+  font-weight: 500;
+}
+
+.secondary-button:hover {
+  border-color: rgba(52, 211, 153, 0.5);
+  background: rgba(52, 211, 153, 0.06);
+  transform: translateY(-3px);
+}
+
+/* Social links */
+
+.social-link {
+  color: var(--muted);
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}

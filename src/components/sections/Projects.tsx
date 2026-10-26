@@ -5,9 +5,11 @@ import { ArrowUpRight, FolderGit2 } from "lucide-react";
 
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projects } from "@/data/projects";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 export default function Projects() {
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   return (
     <section
@@ -15,7 +17,6 @@ export default function Projects() {
       aria-labelledby="projects-title"
       className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:px-10"
     >
-      {/* Section heading */}
       <motion.div
         initial={reducedMotion ? false : { opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -23,18 +24,17 @@ export default function Projects() {
         transition={{ duration: reducedMotion ? 0 : 0.6 }}
         className="mb-16"
       >
-        <p className="mb-4 font-mono text-sm text-emerald-400">02 / SELECTED WORK</p>
+        <p className="mb-4 font-mono text-sm text-emerald-400">{t.projectsSection.label}</p>
 
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <h2 id="projects-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Featured Projects
+              {t.projectsSection.title}
               <span className="text-emerald-400">.</span>
             </h2>
 
             <p className="mt-5 max-w-xl text-base leading-8 text-zinc-400">
-              A collection of projects where I explore modern technologies, solve real problems, and
-              turn ideas into functional applications.
+              {t.projectsSection.description}
             </p>
           </div>
 
@@ -44,7 +44,8 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="group inline-flex shrink-0 items-center gap-2 text-sm font-medium text-emerald-400 transition-colors hover:text-emerald-300"
           >
-            View all on GitHub
+            {t.projectsSection.viewAll}
+
             <ArrowUpRight
               size={18}
               className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
@@ -53,14 +54,21 @@ export default function Projects() {
         </div>
       </motion.div>
 
-      {/* Projects grid */}
       <div className="grid items-stretch gap-7 lg:grid-cols-2">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
-        ))}
+        {projects.map((project, index) => {
+          const translatedProject =
+            t.projectsSection.items[project.id as keyof typeof t.projectsSection.items];
+
+          return (
+            <ProjectCard
+              key={project.id}
+              index={index}
+              project={translatedProject ? { ...project, ...translatedProject } : project}
+            />
+          );
+        })}
       </div>
 
-      {/* Bottom note */}
       <motion.div
         initial={reducedMotion ? false : { opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -74,11 +82,9 @@ export default function Projects() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-white">More projects on GitHub</h3>
+            <h3 className="font-semibold text-white">{t.projectsSection.moreProjects}</h3>
 
-            <p className="mt-1 text-sm text-zinc-500">
-              Explore my repositories and development journey.
-            </p>
+            <p className="mt-1 text-sm text-zinc-500">{t.projectsSection.moreDescription}</p>
           </div>
         </div>
 
@@ -88,7 +94,7 @@ export default function Projects() {
           rel="noopener noreferrer"
           className="secondary-button shrink-0"
         >
-          Explore GitHub
+          {t.projectsSection.exploreGitHub}
           <ArrowUpRight size={17} />
         </a>
       </motion.div>

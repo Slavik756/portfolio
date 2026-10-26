@@ -14,8 +14,11 @@ import {
 
 import { experiences, education, type ExperienceItem, type EducationItem } from "@/data/experience";
 
+import { useLanguage } from "@/i18n/LanguageProvider";
+
 function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }) {
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   return (
     <motion.article
@@ -53,7 +56,7 @@ function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }
           {item.current && (
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-[10px] font-semibold tracking-widest text-emerald-300 uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              Current
+              {t.experienceSection.current}
             </span>
           )}
         </div>
@@ -75,9 +78,9 @@ function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }
 
         {/* Achievements */}
         <div className="mt-7 space-y-3">
-          {item.achievements.map((achievement) => (
+          {item.achievements.map((achievement, achievementIndex) => (
             <div
-              key={achievement}
+              key={achievementIndex}
               className="flex items-start gap-3 text-sm leading-6 text-zinc-400"
             >
               <CheckCircle2
@@ -111,7 +114,8 @@ function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }
             rel="noopener noreferrer"
             className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-emerald-400 transition-colors hover:text-emerald-300"
           >
-            View Project
+            {t.experienceSection.viewProject}
+
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         )}
@@ -122,11 +126,18 @@ function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }
 
 function EducationCard({ item, index }: { item: EducationItem; index: number }) {
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   const statusStyles = {
     "In Progress": "border-blue-400/20 bg-blue-400/10 text-blue-300",
     Completed: "border-emerald-400/20 bg-emerald-400/10 text-emerald-300",
     Admitted: "border-violet-400/20 bg-violet-400/10 text-violet-300",
+  };
+
+  const statusLabels = {
+    "In Progress": t.experienceSection.statuses.inProgress,
+    Completed: t.experienceSection.statuses.completed,
+    Admitted: t.experienceSection.statuses.admitted,
   };
 
   return (
@@ -148,13 +159,14 @@ function EducationCard({ item, index }: { item: EducationItem; index: number }) 
         <span className="h-2 w-2 rounded-full bg-violet-400" />
       </span>
 
+      {/* Timeline line */}
       <span
         className="absolute top-12 bottom-[-32px] left-[9px] w-px bg-gradient-to-b from-violet-400/40 to-white/5"
         aria-hidden="true"
       />
 
       <div className="rounded-2xl border border-white/10 bg-[#101413] p-6 transition-all duration-300 hover:border-violet-400/30 hover:bg-[#17141d] sm:p-8">
-        {/* Period */}
+        {/* Period and status */}
         <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
           <span className="inline-flex items-center gap-2 font-mono text-xs text-violet-400">
             <CalendarDays size={14} aria-hidden="true" />
@@ -164,17 +176,20 @@ function EducationCard({ item, index }: { item: EducationItem; index: number }) 
           <span
             className={`rounded-full border px-3 py-1.5 text-[10px] font-semibold tracking-wider uppercase ${statusStyles[item.status]}`}
           >
-            {item.status}
+            {statusLabels[item.status]}
           </span>
         </div>
 
         {/* Institution */}
         <h3 className="text-xl font-bold text-white sm:text-2xl">{item.institution}</h3>
 
+        {/* Program */}
         <p className="mt-2 text-base font-medium text-violet-300">{item.program}</p>
 
+        {/* Description */}
         <p className="mt-5 text-sm leading-7 text-zinc-400">{item.description}</p>
 
+        {/* Website */}
         {item.link && (
           <a
             href={item.link}
@@ -182,7 +197,8 @@ function EducationCard({ item, index }: { item: EducationItem; index: number }) 
             rel="noopener noreferrer"
             className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-violet-300 transition-colors hover:text-violet-200"
           >
-            Visit Website
+            {t.experienceSection.visitWebsite}
+
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         )}
@@ -193,6 +209,7 @@ function EducationCard({ item, index }: { item: EducationItem; index: number }) 
 
 export default function Experience() {
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   return (
     <section
@@ -210,16 +227,15 @@ export default function Experience() {
         }}
         className="mb-16"
       >
-        <p className="mb-4 font-mono text-sm text-emerald-400">04 / MY JOURNEY</p>
+        <p className="mb-4 font-mono text-sm text-emerald-400">{t.experienceSection.label}</p>
 
         <h2 id="experience-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
-          Experience &amp; Education
+          {t.experienceSection.title}
           <span className="text-emerald-400">.</span>
         </h2>
 
         <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-400">
-          My journey through software development, collaborative projects, continuous learning and
-          real-world problem solving.
+          {t.experienceSection.description}
         </p>
       </motion.div>
 
@@ -233,16 +249,23 @@ export default function Experience() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold text-white">Experience</h3>
+              <h3 className="text-2xl font-semibold text-white">
+                {t.experienceSection.experienceTitle}
+              </h3>
 
-              <p className="mt-1 text-sm text-zinc-500">Projects &amp; development work</p>
+              <p className="mt-1 text-sm text-zinc-500">{t.experienceSection.experienceSubtitle}</p>
             </div>
           </div>
 
           <div className="space-y-8">
-            {experiences.map((item, index) => (
-              <ExperienceCard key={item.id} item={item} index={index} />
-            ))}
+            {experiences.map((item, index) => {
+              const translation =
+                t.experienceSection.jobs[item.id as keyof typeof t.experienceSection.jobs];
+
+              const localizedItem = translation ? { ...item, ...translation } : item;
+
+              return <ExperienceCard key={item.id} item={localizedItem} index={index} />;
+            })}
           </div>
         </div>
 
@@ -254,16 +277,25 @@ export default function Experience() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold text-white">Education</h3>
+              <h3 className="text-2xl font-semibold text-white">
+                {t.experienceSection.educationTitle}
+              </h3>
 
-              <p className="mt-1 text-sm text-zinc-500">Learning &amp; professional development</p>
+              <p className="mt-1 text-sm text-zinc-500">{t.experienceSection.educationSubtitle}</p>
             </div>
           </div>
 
           <div className="space-y-8">
-            {education.map((item, index) => (
-              <EducationCard key={item.id} item={item} index={index} />
-            ))}
+            {education.map((item, index) => {
+              const translation =
+                t.experienceSection.education[
+                  item.id as keyof typeof t.experienceSection.education
+                ];
+
+              const localizedItem = translation ? { ...item, ...translation } : item;
+
+              return <EducationCard key={item.id} item={localizedItem} index={index} />;
+            })}
           </div>
         </div>
       </div>
@@ -284,16 +316,17 @@ export default function Experience() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold text-white">Always moving forward.</h3>
+            <h3 className="text-lg font-semibold text-white">{t.experienceSection.bottomTitle}</h3>
 
             <p className="mt-2 max-w-xl text-sm leading-7 text-zinc-400">
-              Every project is an opportunity to learn, collaborate and build something better.
+              {t.experienceSection.bottomDescription}
             </p>
           </div>
         </div>
 
         <a href="#contact" className="secondary-button shrink-0">
-          Work With Me
+          {t.experienceSection.workWithMe}
+
           <ArrowUpRight size={17} aria-hidden="true" />
         </a>
       </motion.div>

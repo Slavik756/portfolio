@@ -35,6 +35,7 @@ import { FaJava, FaTheaterMasks } from "react-icons/fa";
 import type { IconType } from "react-icons";
 
 import { skillCategories, type SkillCategory } from "@/data/skills";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 const skillIcons: Record<string, IconType> = {
   html: SiHtml5,
@@ -99,10 +100,14 @@ const themes = {
 
 function CategoryCard({ category, index }: { category: SkillCategory; index: number }) {
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   const theme = themes[category.accent];
 
   const CategoryIcon = categoryIcons[category.id as keyof typeof categoryIcons] ?? Code2;
+
+  const translation =
+    t.skillsSection.categories[category.id as keyof typeof t.skillsSection.categories];
 
   return (
     <motion.article
@@ -115,20 +120,21 @@ function CategoryCard({ category, index }: { category: SkillCategory; index: num
       }}
       className={`group rounded-2xl border border-white/10 bg-[#101413] p-6 transition-colors duration-300 sm:p-8 ${theme.border}`}
     >
-      {/* Category header */}
       <div className="mb-9 flex items-start justify-between gap-4">
         <div className="flex items-center gap-4">
           <div
             className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${theme.bg} ${theme.text}`}
           >
-            <CategoryIcon size={23} />
+            <CategoryIcon size={23} aria-hidden="true" />
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold text-white sm:text-xl">{category.title}</h3>
+            <h3 className="text-lg font-semibold text-white sm:text-xl">
+              {translation?.title ?? category.title}
+            </h3>
 
             <p className="mt-1.5 text-xs leading-5 text-zinc-500 sm:text-sm">
-              {category.description}
+              {translation?.description ?? category.description}
             </p>
           </div>
         </div>
@@ -136,7 +142,6 @@ function CategoryCard({ category, index }: { category: SkillCategory; index: num
         <span className="font-mono text-xs text-zinc-600">{category.number}</span>
       </div>
 
-      {/* Skills grid */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {category.skills.map((skill) => {
           const Icon = skillIcons[skill.icon] ?? Code2;
@@ -164,6 +169,7 @@ function CategoryCard({ category, index }: { category: SkillCategory; index: num
 
 export default function Skills() {
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   return (
     <section
@@ -171,7 +177,6 @@ export default function Skills() {
       aria-labelledby="skills-title"
       className="relative z-10 mx-auto max-w-7xl px-6 py-28 lg:px-10"
     >
-      {/* Section heading */}
       <motion.div
         initial={reducedMotion ? false : { opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -181,27 +186,24 @@ export default function Skills() {
         }}
         className="mb-16"
       >
-        <p className="mb-4 font-mono text-sm text-emerald-400">03 / MY TOOLKIT</p>
+        <p className="mb-4 font-mono text-sm text-emerald-400">{t.skillsSection.label}</p>
 
         <h2 id="skills-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
-          Tech Stack
+          {t.skillsSection.title}
           <span className="text-emerald-400">.</span>
         </h2>
 
         <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
-          Technologies and tools I use to design, develop, test, and deliver modern web
-          applications.
+          {t.skillsSection.description}
         </p>
       </motion.div>
 
-      {/* Categories */}
       <div className="grid items-stretch gap-7 lg:grid-cols-2">
         {skillCategories.map((category, index) => (
           <CategoryCard key={category.id} category={category} index={index} />
         ))}
       </div>
 
-      {/* Bottom block */}
       <motion.div
         initial={reducedMotion ? false : { opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -212,10 +214,10 @@ export default function Skills() {
         className="mt-12 flex flex-col items-center justify-between gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-7 sm:flex-row"
       >
         <div>
-          <h3 className="text-lg font-semibold text-white">Always learning. Always improving.</h3>
+          <h3 className="text-lg font-semibold text-white">{t.skillsSection.bottomTitle}</h3>
 
           <p className="mt-2 text-sm leading-6 text-zinc-500">
-            Continuously exploring new technologies and improving my development skills.
+            {t.skillsSection.bottomDescription}
           </p>
         </div>
 
@@ -225,8 +227,8 @@ export default function Skills() {
           rel="noopener noreferrer"
           className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-emerald-400 transition-colors hover:text-emerald-300"
         >
-          Explore my GitHub
-          <ArrowUpRight size={17} />
+          {t.skillsSection.githubButton}
+          <ArrowUpRight size={17} aria-hidden="true" />
         </a>
       </motion.div>
     </section>

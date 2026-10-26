@@ -1,0 +1,73 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="64"
+  height="64"
+  viewBox="0 0 64 64"
+  fill="none"
+>
+  <defs>
+    <linearGradient
+      id="background"
+      x1="0"
+      y1="0"
+      x2="64"
+      y2="64"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#14221C" />
+      <stop offset="1" stop-color="#080B0A" />
+    </linearGradient>
+
+    <linearGradient
+      id="letters"
+      x1="10"
+      y1="12"
+      x2="54"
+      y2="52"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#6EE7B7" />
+      <stop offset="1" stop-color="#10B981" />
+    </linearGradient>
+  </defs>
+
+  <rect
+    x="1"
+    y="1"
+    width="62"
+    height="62"
+    rx="15"
+    fill="url(#background)"
+  />
+
+  <rect
+    x="1"
+    y="1"
+    width="62"
+    height="62"
+    rx="15"
+    stroke="#34D399"
+    stroke-opacity="0.35"
+  />
+
+  <text
+    x="32"
+    y="41"
+    text-anchor="middle"
+    fill="url(#letters)"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="28"
+    font-weight="800"
+    letter-spacing="-2"
+  >VP</text>
+
+  <rect
+    x="20"
+    y="47"
+    width="24"
+    height="2"
+    rx="1"
+    fill="#34D399"
+    fill-opacity="0.8"
+  />
+</svg>

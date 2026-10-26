@@ -10,12 +10,11 @@ import {
   Activity,
   CheckCircle2,
 } from "lucide-react";
-
 import { FaGithub } from "react-icons/fa";
+import Image from "next/image";
 
 import type { Project } from "@/data/projects";
-
-import Image from "next/image";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 type ProjectCardProps = {
   project: Project;
@@ -50,12 +49,15 @@ const themes = {
 };
 
 function ProjectVisual({ project }: { project: Project }) {
+  const { t } = useLanguage();
   const theme = themes[project.accent];
 
-  // Show real project screenshots when available
   if (project.image) {
     return (
-      <div className="relative h-64 overflow-hidden border-b border-white/10 bg-[#101513] sm:h-72">
+      <div
+        className="relative h-64 w-full shrink-0 overflow-hidden border-b border-white/10 bg-[#101513] sm:h-72"
+        style={{ position: "relative" }}
+      >
         <Image
           src={project.image}
           alt={project.imageAlt ?? `${project.title} website screenshot`}
@@ -72,7 +74,7 @@ function ProjectVisual({ project }: { project: Project }) {
 
         {project.featured && (
           <span className="absolute top-4 right-4 rounded-full border border-emerald-400/20 bg-[#07110c]/90 px-3 py-1.5 text-[10px] font-medium text-emerald-300">
-            FEATURED
+            {t.projectsSection.featured}
           </span>
         )}
       </div>
@@ -84,12 +86,13 @@ function ProjectVisual({ project }: { project: Project }) {
     verdora: Server,
     powergym: Dumbbell,
     tradeblade: Activity,
+    "elvira-nails": Code2,
   };
 
   const Icon = icons[project.id as keyof typeof icons] ?? Code2;
 
   return (
-    <div className="relative flex h-64 items-center justify-center overflow-hidden border-b border-white/10 bg-[#101513] sm:h-72">
+    <div className="relative flex h-64 w-full shrink-0 items-center justify-center overflow-hidden border-b border-white/10 bg-[#101513] sm:h-72">
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-30"
@@ -130,7 +133,7 @@ function ProjectVisual({ project }: { project: Project }) {
             <p className="mt-2 text-xs text-zinc-500">{project.category}</p>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex flex-wrap justify-center gap-2">
             {project.technologies.slice(0, 3).map((tech) => (
               <span
                 key={tech}
@@ -149,7 +152,7 @@ function ProjectVisual({ project }: { project: Project }) {
 
       {project.featured && (
         <span className="absolute top-4 right-4 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] font-medium text-emerald-300">
-          FEATURED
+          {t.projectsSection.featured}
         </span>
       )}
     </div>
@@ -158,6 +161,7 @@ function ProjectVisual({ project }: { project: Project }) {
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
   const theme = themes[project.accent];
 
   return (
@@ -200,7 +204,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         {/* Highlights */}
         <div className="mt-7">
           <p className="mb-4 text-xs font-semibold tracking-widest text-zinc-500 uppercase">
-            Key Features
+            {t.projectsSection.keyFeatures}
           </p>
 
           <div className="grid gap-3 sm:grid-cols-2">
@@ -239,11 +243,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               className="inline-flex items-center gap-2 font-medium text-white transition-colors hover:text-emerald-400"
             >
               <FaGithub size={17} />
-              Source Code
+              {t.projectsSection.sourceCode}
               <ArrowUpRight size={15} />
             </a>
           ) : (
-            <span className="text-xs text-zinc-600">Source code available on request</span>
+            <span className="text-xs text-zinc-600">{t.projectsSection.sourceRequest}</span>
           )}
 
           {project.githubBackend && (
@@ -253,7 +257,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-zinc-400 transition-colors hover:text-emerald-400"
             >
-              Backend
+              {t.projectsSection.backend}
               <ArrowUpRight size={15} />
             </a>
           )}
@@ -265,7 +269,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 font-medium ${theme.text}`}
             >
-              Live Demo
+              {t.projectsSection.liveDemo}
               <ExternalLink size={15} />
             </a>
           )}

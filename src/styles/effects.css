@@ -1,0 +1,65 @@
+/* Background grid */
+
+.background-grid {
+  z-index: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+  background-size: 55px 55px;
+
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+/* Ambient glow */
+
+.glow {
+  position: absolute;
+  z-index: 0;
+
+  width: 500px;
+  height: 500px;
+
+  pointer-events: none;
+  border-radius: 50%;
+
+  filter: blur(130px);
+}
+
+.glow-one {
+  top: 100px;
+  right: -200px;
+
+  background: rgba(16, 185, 129, 0.09);
+}
+
+.glow-two {
+  top: 700px;
+  left: -250px;
+
+  background: rgba(16, 185, 129, 0.05);
+}
+
+/* Gradient text */
+
+.gradient-text {
+  background: linear-gradient(110deg, var(--accent-light), var(--accent), var(--accent-dark));
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+/* Code editor window */
+
+.code-window {
+  border: 1px solid rgba(52, 211, 153, 0.17);
+
+  background: linear-gradient(145deg, rgba(25, 32, 29, 0.96), rgba(11, 16, 14, 0.98));
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.5),
+    0 0 70px rgba(16, 185, 129, 0.05);
+}

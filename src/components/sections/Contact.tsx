@@ -1,18 +1,15 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import {
-  ArrowDownToLine,
-  ArrowRight,
-  ArrowUpRight,
-  Check,
-  Copy,
-  Mail,
-  MapPin,
-  Send,
-} from "lucide-react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+
+import { ArrowDownToLine, ArrowRight, ArrowUpRight, Check, Copy, Mail, MapPin } from "lucide-react";
+
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+
+import { useLanguage } from "@/i18n/LanguageProvider";
+
+const email = "slavikpokora567@gmail.com";
 
 const contactLinks = [
   {
@@ -31,15 +28,14 @@ const contactLinks = [
 
 export default function Contact() {
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   const [copied, setCopied] = useState(false);
-
-  // Replace with your actual professional email.
-  const email = "slavikpokora567@gmail.com";
 
   async function copyEmail() {
     try {
       await navigator.clipboard.writeText(email);
+
       setCopied(true);
 
       window.setTimeout(() => {
@@ -49,8 +45,6 @@ export default function Contact() {
       setCopied(false);
     }
   }
-
-  const hasEmail = true;
 
   return (
     <section
@@ -63,29 +57,32 @@ export default function Contact() {
         initial={reducedMotion ? false : { opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: reducedMotion ? 0 : 0.6 }}
+        transition={{
+          duration: reducedMotion ? 0 : 0.6,
+        }}
         className="mb-16"
       >
-        <p className="mb-4 font-mono text-sm text-emerald-400">05 / WHAT&apos;S NEXT?</p>
+        <p className="mb-4 font-mono text-sm text-emerald-400">{t.contactSection.label}</p>
 
         <h2 id="contact-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
-          Let&apos;s Connect
+          {t.contactSection.title}
           <span className="text-emerald-400">.</span>
         </h2>
 
         <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
-          Have an opportunity, a project idea, or just want to say hello? I&apos;d love to hear from
-          you.
+          {t.contactSection.description}
         </p>
       </motion.div>
 
       <div className="grid gap-7 lg:grid-cols-[1.15fr_0.85fr]">
-        {/* Main CTA */}
+        {/* Main contact card */}
         <motion.div
           initial={reducedMotion ? false : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: reducedMotion ? 0 : 0.6 }}
+          transition={{
+            duration: reducedMotion ? 0 : 0.6,
+          }}
           className="relative overflow-hidden rounded-3xl border border-emerald-400/20 bg-[#101815] p-7 sm:p-10"
         >
           {/* Decorative glow */}
@@ -106,49 +103,41 @@ export default function Contact() {
               </span>
 
               <span className="text-xs font-medium text-emerald-300">
-                Open to Worldwide Opportunities
+                {t.contactSection.availability}
               </span>
             </div>
 
+            {/* Main title */}
             <h3 className="mt-9 max-w-xl text-3xl leading-tight font-bold tracking-tight text-white sm:text-5xl">
-              Let&apos;s build something
-              <span className="block text-emerald-400">meaningful together.</span>
+              {t.contactSection.heading}
+
+              <span className="block text-emerald-400">{t.contactSection.headingAccent}</span>
             </h3>
 
+            {/* Main description */}
             <p className="mt-7 max-w-lg text-sm leading-8 text-zinc-400 sm:text-base">
-              I&apos;m a Junior Frontend / Fullstack Developer based in France and Open to Worldwide
-              Opportunities. I&apos;m interested in remote and on-site positions, internships, and
-              collaborative projects where I can contribute, learn, and grow.
+              {t.contactSection.mainDescription}
             </p>
 
+            {/* Location */}
             <div className="mt-7 flex items-center gap-2 text-sm text-zinc-400">
               <MapPin size={17} className="text-emerald-400" aria-hidden="true" />
-              Based near Perpignan, France
+
+              {t.contactSection.location}
             </div>
 
             {/* Main buttons */}
             <div className="mt-10 flex flex-wrap gap-3">
-              {hasEmail ? (
-                <a
-                  href={`mailto:${email}`}
-                  className="inline-flex items-center gap-3 rounded-xl bg-emerald-400 px-5 py-3.5 text-sm font-semibold text-[#07110c] transition-all hover:-translate-y-0.5 hover:bg-emerald-300"
-                >
-                  <Mail size={18} aria-hidden="true" />
-                  Send an Email
-                  <ArrowUpRight size={17} aria-hidden="true" />
-                </a>
-              ) : (
-                <a
-                  href="https://www.linkedin.com/in/viacheslav-pokora-1971a8350/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 rounded-xl bg-emerald-400 px-5 py-3.5 text-sm font-semibold text-[#07110c] transition-all hover:-translate-y-0.5 hover:bg-emerald-300"
-                >
-                  <Send size={18} aria-hidden="true" />
-                  Message on LinkedIn
-                  <ArrowUpRight size={17} aria-hidden="true" />
-                </a>
-              )}
+              <a
+                href={`mailto:${email}`}
+                className="inline-flex items-center gap-3 rounded-xl bg-emerald-400 px-5 py-3.5 text-sm font-semibold text-[#07110c] transition-all hover:-translate-y-0.5 hover:bg-emerald-300"
+              >
+                <Mail size={18} aria-hidden="true" />
+
+                {t.contactSection.sendEmail}
+
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
 
               <a
                 href="/cv-frontend.pdf"
@@ -156,7 +145,8 @@ export default function Contact() {
                 className="inline-flex items-center gap-3 rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:border-emerald-400/30 hover:bg-white/10"
               >
                 <ArrowDownToLine size={18} aria-hidden="true" />
-                Frontend CV
+
+                {t.hero.frontendCV}
               </a>
 
               <a
@@ -165,7 +155,8 @@ export default function Contact() {
                 className="inline-flex items-center gap-3 rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:border-emerald-400/30 hover:bg-white/10"
               >
                 <ArrowDownToLine size={18} aria-hidden="true" />
-                Fullstack CV
+
+                {t.hero.fullstackCV}
               </a>
             </div>
           </div>
@@ -182,7 +173,7 @@ export default function Contact() {
           }}
           className="flex flex-col gap-7"
         >
-          {/* Email */}
+          {/* Email card */}
           <div className="rounded-3xl border border-white/10 bg-[#101413] p-7 sm:p-8">
             <div className="flex items-center justify-between">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-400/10 text-emerald-400">
@@ -192,40 +183,36 @@ export default function Contact() {
               <span className="font-mono text-xs text-zinc-600">01 / EMAIL</span>
             </div>
 
-            <h3 className="mt-6 text-lg font-semibold text-white">Get in Touch</h3>
+            <h3 className="mt-6 text-lg font-semibold text-white">{t.contactSection.emailTitle}</h3>
 
             <p className="mt-2 text-sm leading-6 text-zinc-500">
-              The best way to contact me directly.
+              {t.contactSection.emailDescription}
             </p>
 
-            {hasEmail ? (
-              <>
-                <a
-                  href={`mailto:${email}`}
-                  className="mt-6 block text-sm font-medium break-all text-emerald-400 transition-colors hover:text-emerald-300 sm:text-base"
-                >
-                  {email}
-                </a>
+            <a
+              href={`mailto:${email}`}
+              className="mt-6 block text-sm font-medium break-all text-emerald-400 transition-colors hover:text-emerald-300 sm:text-base"
+            >
+              {email}
+            </a>
 
-                <button
-                  type="button"
-                  onClick={copyEmail}
-                  aria-label={copied ? "Email copied" : "Copy email"}
-                  className="mt-5 inline-flex items-center gap-2 text-xs font-medium text-zinc-400 transition-colors hover:text-white"
-                >
-                  {copied ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
+            <button
+              type="button"
+              onClick={copyEmail}
+              aria-label={copied ? t.contactSection.emailCopied : t.contactSection.copyEmail}
+              className="mt-5 inline-flex items-center gap-2 text-xs font-medium text-zinc-400 transition-colors hover:text-white"
+            >
+              {copied ? (
+                <Check size={16} className="text-emerald-400" aria-hidden="true" />
+              ) : (
+                <Copy size={16} aria-hidden="true" />
+              )}
 
-                  {copied ? "Copied!" : "Copy Email"}
-                </button>
-              </>
-            ) : (
-              <p className="mt-6 text-sm text-zinc-400">
-                Reach me through LinkedIn while my email contact is being configured.
-              </p>
-            )}
+              {copied ? t.contactSection.emailCopied : t.contactSection.copyEmail}
+            </button>
           </div>
 
-          {/* Social links */}
+          {/* Social card */}
           <div className="flex-1 rounded-3xl border border-white/10 bg-[#101413] p-7 sm:p-8">
             <div className="flex items-center justify-between">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-zinc-300">
@@ -235,10 +222,12 @@ export default function Contact() {
               <span className="font-mono text-xs text-zinc-600">02 / SOCIAL</span>
             </div>
 
-            <h3 className="mt-6 text-lg font-semibold text-white">Find Me Online</h3>
+            <h3 className="mt-6 text-lg font-semibold text-white">
+              {t.contactSection.socialTitle}
+            </h3>
 
             <p className="mt-2 text-sm leading-6 text-zinc-500">
-              Explore my work or connect professionally.
+              {t.contactSection.socialDescription}
             </p>
 
             <div className="mt-6 space-y-3">
@@ -289,7 +278,7 @@ export default function Contact() {
         }}
         className="mt-16 text-center font-mono text-xs tracking-wider text-zinc-600"
       >
-        HAVE AN IDEA? LET&apos;S MAKE IT REAL.
+        {t.contactSection.closing}
       </motion.p>
     </section>
   );

@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
+import { useLanguage } from "@/i18n/LanguageProvider";
+
 const codeLines = [
   [
     { text: "const ", color: "text-purple-400" },
@@ -48,6 +50,7 @@ const codeLines = [
 
 export default function Hero() {
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
 
   const reveal = (delay = 0) => ({
     initial: reducedMotion ? false : { opacity: 0, y: 24 },
@@ -66,6 +69,7 @@ export default function Hero() {
     >
       {/* Left side */}
       <div className="relative z-10">
+        {/* Availability */}
         <motion.div
           {...reveal(0.1)}
           className="mb-9 inline-flex items-center gap-3 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-4 py-2.5"
@@ -74,18 +78,21 @@ export default function Hero() {
             {!reducedMotion && (
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
             )}
+
             <span className="relative h-2 w-2 rounded-full bg-emerald-400" />
           </span>
 
           <span className="font-mono text-[11px] font-medium tracking-[0.15em] text-emerald-300 sm:text-xs">
-            Open to Worldwide Opportunities
+            {t.hero.availability}
           </span>
         </motion.div>
 
+        {/* Greeting */}
         <motion.p {...reveal(0.2)} className="mb-5 text-lg text-zinc-400">
-          Hello, I&apos;m
+          {t.hero.greeting}
         </motion.p>
 
+        {/* Name */}
         <motion.h1
           id="hero-title"
           {...reveal(0.3)}
@@ -96,22 +103,25 @@ export default function Hero() {
           <span className="gradient-text">Pokora.</span>
         </motion.h1>
 
+        {/* Role */}
         <motion.div {...reveal(0.4)} className="mt-8">
           <p className="flex flex-wrap items-center gap-3 text-xl font-medium text-zinc-200 sm:text-2xl">
             <Code2 size={23} className="text-emerald-400" aria-hidden="true" />
-            Frontend & Fullstack Developer
+
+            {t.hero.role}
           </p>
         </motion.div>
 
+        {/* Description */}
         <motion.p {...reveal(0.5)} className="mt-7 max-w-[540px] text-base leading-8 text-zinc-400">
-          I create modern, responsive web applications with React, Next.js, TypeScript and Node.js.
-          I enjoy solving complex problems, writing maintainable code and building meaningful
-          digital experiences.
+          {t.hero.description}
         </motion.p>
 
+        {/* Buttons */}
         <motion.div {...reveal(0.6)} className="mt-10 flex flex-wrap items-center gap-4">
           <a href="#projects" className="primary-button group">
-            Explore Projects
+            {t.hero.projectsButton}
+
             <ArrowRight
               size={18}
               className="transition-transform group-hover:translate-x-1"
@@ -125,7 +135,7 @@ export default function Hero() {
             className="secondary-button"
           >
             <Download size={17} aria-hidden="true" />
-            Frontend CV
+            {t.hero.frontendCV}
           </a>
 
           <a
@@ -134,10 +144,11 @@ export default function Hero() {
             className="secondary-button"
           >
             <Download size={17} aria-hidden="true" />
-            Fullstack CV
+            {t.hero.fullstackCV}
           </a>
         </motion.div>
 
+        {/* Social links */}
         <motion.div {...reveal(0.7)} className="mt-12 flex flex-wrap items-center gap-6">
           <a
             href="https://github.com/Slavik756"
@@ -250,7 +261,7 @@ export default function Hero() {
 
             <span className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Ready to build
+              {t.hero.editorStatus}
             </span>
           </div>
         </div>
@@ -270,9 +281,9 @@ export default function Hero() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-white">Clean Code</p>
+            <p className="text-sm font-semibold text-white">{t.hero.cleanCode}</p>
 
-            <p className="text-xs text-zinc-500">Better Experiences</p>
+            <p className="text-xs text-zinc-500">{t.hero.betterExperiences}</p>
           </div>
 
           <ArrowUpRight size={15} className="ml-2 text-emerald-400" aria-hidden="true" />
@@ -284,7 +295,8 @@ export default function Hero() {
         href="#about"
         className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-zinc-500 transition-colors hover:text-emerald-400 lg:flex"
       >
-        SCROLL TO EXPLORE
+        {t.hero.scrollToExplore}
+
         <ArrowDown size={17} className={reducedMotion ? "" : "animate-bounce"} aria-hidden="true" />
       </a>
     </section>
