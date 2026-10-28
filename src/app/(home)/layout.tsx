@@ -15,7 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-kappa-six-y0ppp8ss1t.vercel.app",
+  ),
 };
 
 export default function HomeLayout({ children }: { children: ReactNode }) {

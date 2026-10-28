@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
 
 const seoContent = {
   en: {
-    title: "Viacheslav Pokora | Frontend & Fullstack Developer",
+    title: "Viacheslav Pokora | Fullstack Developer",
     description:
       "Explore the portfolio of Viacheslav Pokora, a Junior Frontend and Fullstack Developer based in France. Discover my projects, technical skills, experience and education.",
     openGraphTitle: "Viacheslav Pokora | Developer Portfolio",
@@ -36,7 +36,7 @@ const seoContent = {
   },
 
   fr: {
-    title: "Viacheslav Pokora | Développeur Frontend & Fullstack",
+    title: "Viacheslav Pokora | Développeur Fullstack",
     description:
       "Découvrez le portfolio de Viacheslav Pokora, développeur junior Frontend et Fullstack basé en France. Explorez mes projets, compétences techniques, expériences et formations.",
     openGraphTitle: "Viacheslav Pokora | Portfolio Développeur",
@@ -46,7 +46,7 @@ const seoContent = {
   },
 
   uk: {
-    title: "Viacheslav Pokora | Frontend & Fullstack-розробник",
+    title: "Viacheslav Pokora | Fullstack-розробник",
     description:
       "Портфоліо В'ячеслава Покори — Junior Frontend та Fullstack-розробника у Франції. Перегляньте мої проєкти, технічні навички, досвід роботи та освіту.",
     openGraphTitle: "Viacheslav Pokora | Портфоліо розробника",
@@ -68,7 +68,9 @@ export async function generateMetadata({
   }
 
   const content = seoContent[locale];
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-kappa-six-y0ppp8ss1t.vercel.app";
 
   const canonicalUrl = siteUrl ? new URL(`/${locale}`, siteUrl).toString() : undefined;
 
@@ -82,7 +84,7 @@ export async function generateMetadata({
     : undefined;
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+    metadataBase: new URL(siteUrl),
 
     title: content.title,
     description: content.description,
