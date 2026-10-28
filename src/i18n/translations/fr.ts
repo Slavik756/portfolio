@@ -85,25 +85,25 @@ export const fr: typeof en = {
       tasteorama: {
         category: "Application web Fullstack",
         description:
-          "Une plateforme de découverte de recettes avec authentification, filtres avancés, favoris et interface adaptative.",
+          "Une plateforme de découverte de recettes développée en équipe, avec authentification, filtres, favoris et interface adaptative. J’ai contribué au frontend et au backend en tant que chef d’équipe.",
         role: "Chef d'équipe / Développeur Fullstack",
         highlights: [
-          "Collaboration en équipe",
-          "Intégration d'API REST",
+          "Encadrement de l’équipe",
+          "Développement d’API REST",
           "Filtrage des recettes",
-          "Authentification",
+          "Gestion des favoris",
         ],
       },
 
       verdora: {
         category: "Backend e-commerce",
         description:
-          "Un backend e-commerce développé en équipe, avec API REST, gestion des commandes, filtres avancés, pagination et migrations de base de données.",
+          "Un backend e-commerce collaboratif développé avec Java et Spring Boot. J’ai implémenté la pagination des catégories, le filtrage et le tri des commandes, des fonctionnalités API REST et des migrations de base de données.",
         role: "Développeur Backend",
         highlights: [
-          "Développement d'API REST",
+          "Développement d’API REST",
           "Filtrage et tri des commandes",
-          "Pagination",
+          "Pagination des catégories",
           "Migrations de base de données",
         ],
       },
@@ -111,7 +111,7 @@ export const fr: typeof en = {
       powergym: {
         category: "Application web de fitness",
         description:
-          "Un site de fitness adaptatif avec calendrier interactif, filtres par catégorie, formulaires de réservation et sauvegarde locale des réservations.",
+          "Un site de fitness personnel et adaptatif, avec calendrier d’entraînement interactif, filtres par catégorie, formulaires de réservation et sauvegarde locale des réservations.",
         role: "Développeur Frontend",
         highlights: [
           "Interface adaptative",
@@ -124,7 +124,7 @@ export const fr: typeof en = {
       tradeblade: {
         category: "Landing page adaptative",
         description:
-          "Une landing page moderne et adaptative avec une structure soignée, des éléments interactifs et une interface visuelle épurée.",
+          "Une page d’accueil moderne et adaptative, avec des composants bien structurés, des éléments interactifs et une interface épurée.",
         role: "Développeur Frontend",
         highlights: [
           "Mise en page adaptative",
@@ -137,7 +137,7 @@ export const fr: typeof en = {
       "elvira-nails": {
         category: "Application web Fullstack · En développement",
         description:
-          "Un site web développé en équipe pour un studio de manucure et une académie de formation aux Pays-Bas. Il utilise Next.js, TypeScript, PostgreSQL et Payload CMS pour gérer du contenu multilingue et les réalisations des élèves.",
+          "Un projet Fullstack concret, en cours de développement, pour un studio de manucure et une académie de formation aux Pays-Bas. Je contribue au frontend et au backend, à la gestion de contenu multilingue, à l’intégration de Payload CMS et à l’architecture avec PostgreSQL.",
         role: "Développeur Fullstack",
         highlights: [
           "Développement frontend et backend",
@@ -149,7 +149,7 @@ export const fr: typeof en = {
       watchcharm: {
         category: "Site web responsive",
         description:
-          "Un site vitrine de montres développé en équipe, présentant des collections de produits, des offres promotionnelles et une mise en page adaptée aux différents écrans.",
+          "Un site de marque de montres développé en équipe, avec collections de produits, sections promotionnelles et mise en page adaptée aux différents écrans.",
         role: "Développeur Frontend",
         highlights: [
           "Design responsive",
@@ -162,7 +162,7 @@ export const fr: typeof en = {
       stackers: {
         category: "Portfolio interactif",
         description:
-          "Un portfolio JavaScript réalisé en équipe, avec personnalisation des thèmes, composants interactifs, carrousels et interface responsive.",
+          "Un portfolio JavaScript collaboratif avec personnalisation des thèmes, composants interactifs, carrousels et mise en page responsive.",
         role: "Développeur Frontend",
         highlights: [
           "Thèmes clair et sombre",
@@ -173,15 +173,15 @@ export const fr: typeof en = {
       },
 
       "you-my-heart": {
-        category: "Expérience interactive React",
+        category: "Application React interactive",
         description:
-          "Une expérience web créative intégrant des animations Canvas, des commandes audio, des galeries de photos et une interface adaptée aux mobiles.",
+          "Une application React créative associant narration interactive, animations Canvas, commandes musicales, galeries de photos et design adaptatif pour offrir une expérience utilisateur immersive.",
         role: "Développeur Frontend",
         highlights: [
-          "Composants React",
+          "Narration interactive",
           "Animations Canvas",
           "Commandes audio",
-          "Interfaces responsives",
+          "Interface adaptative",
         ],
       },
     },

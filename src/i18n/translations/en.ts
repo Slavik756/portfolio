@@ -83,25 +83,25 @@ export const en = {
       tasteorama: {
         category: "Fullstack Web Application",
         description:
-          "A fullstack recipe discovery platform featuring authentication, advanced recipe filtering, favorites, and responsive design.",
+          "A team-developed recipe discovery platform with authentication, recipe filtering, favorites and responsive design. Contributed to frontend and backend development as Team Lead.",
         role: "Team Lead / Fullstack Developer",
         highlights: [
-          "Team collaboration",
-          "REST API integration",
+          "Team leadership",
+          "REST API development",
           "Recipe filtering",
-          "Authentication",
+          "Favorites functionality",
         ],
       },
 
       verdora: {
         category: "E-commerce Backend",
         description:
-          "A collaborative e-commerce backend with REST APIs, order management, advanced filtering, pagination, and database migrations.",
+          "A collaborative Java Spring Boot e-commerce backend. Implemented category pagination, order filtering and sorting, REST API functionality and database migrations.",
         role: "Backend Developer",
         highlights: [
           "REST API development",
           "Order filtering and sorting",
-          "Pagination",
+          "Category pagination",
           "Database migrations",
         ],
       },
@@ -109,7 +109,7 @@ export const en = {
       powergym: {
         category: "Fitness Web Application",
         description:
-          "A responsive fitness website with an interactive training calendar, category filters, booking forms, and persistent reservations.",
+          "A personal responsive fitness website featuring an interactive training calendar, category filters, booking forms and persistent reservations.",
         role: "Frontend Developer",
         highlights: [
           "Responsive interface",
@@ -122,7 +122,7 @@ export const en = {
       tradeblade: {
         category: "Responsive Landing Page",
         description:
-          "A modern responsive landing page with carefully structured components, interactive elements, and a clean visual interface.",
+          "A modern responsive landing page with carefully structured components, interactive elements and a clean visual interface.",
         role: "Frontend Developer",
         highlights: ["Responsive layout", "Interactive UI", "Semantic HTML", "CSS architecture"],
       },
@@ -130,7 +130,7 @@ export const en = {
       "elvira-nails": {
         category: "Fullstack Web Application · In Development",
         description:
-          "A team-developed website for a nail studio and training academy in the Netherlands. Built with Next.js, TypeScript, PostgreSQL and Payload CMS, featuring multilingual content management and student case studies.",
+          "An ongoing real-world Fullstack project for a nail studio and training academy in the Netherlands. Contributing to frontend and backend development, multilingual content management, Payload CMS integration, PostgreSQL and application architecture.",
         role: "Fullstack Developer",
         highlights: [
           "Frontend and backend development",
@@ -139,6 +139,7 @@ export const en = {
           "PostgreSQL and Prisma",
         ],
       },
+
       watchcharm: {
         category: "Responsive Website",
         description:
@@ -161,15 +162,15 @@ export const en = {
       },
 
       "you-my-heart": {
-        category: "Interactive React Experience",
+        category: "Interactive React Application",
         description:
-          "A creative interactive web experience featuring Canvas animations, audio controls, photo galleries and responsive design.",
+          "A creative React application combining interactive storytelling, Canvas animations, music controls, photo galleries and responsive design to deliver an engaging user experience.",
         role: "Frontend Developer",
         highlights: [
-          "React components",
+          "Interactive storytelling",
           "Canvas animations",
           "Audio controls",
-          "Responsive interfaces",
+          "Responsive UI",
         ],
       },
     },
