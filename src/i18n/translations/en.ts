@@ -32,13 +32,13 @@ export const en = {
     headingAccent: "purpose and precision.",
 
     paragraphs: [
-      "I'm Viacheslav, a developer based in Perpignan, France, passionate about creating modern and user-friendly web applications.",
+      "I'm Viacheslav, a Fullstack Developer based in Perpignan, France. I build modern web applications, working on both user interfaces and server-side functionality.",
 
-      "My main focus is frontend development with React, Next.js and TypeScript. I also work with backend technologies including Node.js, Express, Java, Spring Boot and PostgreSQL.",
+      "My main focus is Fullstack Development. On the frontend, I use React, Next.js, TypeScript and Tailwind CSS. For backend development, I work with Node.js, Express, Java, Spring Boot, PostgreSQL and MongoDB.",
 
-      "I have experience collaborating on team projects, implementing REST APIs, working with databases and building responsive interfaces.",
+      "I have experience working independently and collaborating with development teams. My work includes REST APIs, databases, authentication, admin dashboards, responsive interfaces and third-party integrations.",
 
-      "I'm continuously improving my skills and looking for opportunities to contribute to meaningful projects.",
+      "I've contributed to Elvira Nails, Verdora and Tasteorama, while also building personal projects. I continuously improve my skills and seek opportunities to grow as a Fullstack Developer.",
     ],
 
     githubButton: "Explore my GitHub",
@@ -50,8 +50,8 @@ export const en = {
       },
 
       teamwork: {
-        title: "Team Collaboration",
-        description: "Team projects, Git workflows & code reviews",
+        title: "Real-World Projects",
+        description: "Independent and collaborative development",
       },
 
       learning: {
@@ -137,6 +137,39 @@ export const en = {
           "Payload CMS integration",
           "Multilingual content management",
           "PostgreSQL and Prisma",
+        ],
+      },
+      watchcharm: {
+        category: "Responsive Website",
+        description:
+          "A collaborative responsive watch brand website featuring product collections, promotional sections and adaptive layouts.",
+        role: "Frontend Developer",
+        highlights: ["Responsive design", "Team collaboration", "Product catalog", "Semantic HTML"],
+      },
+
+      stackers: {
+        category: "Interactive Portfolio Website",
+        description:
+          "A collaborative JavaScript portfolio featuring theme customization, interactive components, sliders and responsive layouts.",
+        role: "Frontend Developer",
+        highlights: [
+          "Dark and light themes",
+          "Accent color customization",
+          "Interactive components",
+          "Responsive design",
+        ],
+      },
+
+      "you-my-heart": {
+        category: "Interactive React Experience",
+        description:
+          "A creative interactive web experience featuring Canvas animations, audio controls, photo galleries and responsive design.",
+        role: "Frontend Developer",
+        highlights: [
+          "React components",
+          "Canvas animations",
+          "Audio controls",
+          "Responsive interfaces",
         ],
       },
     },

@@ -113,15 +113,6 @@ export const education: EducationItem[] = [
     link: "https://42.fr/",
   },
   {
-    id: "international-university",
-    institution: "International University",
-    program: "Frontend Development",
-    period: "2024 — Present",
-    description:
-      "Studying software and frontend development, strengthening programming knowledge and practical development skills.",
-    status: "In Progress",
-  },
-  {
     id: "goit",
     institution: "GoIT",
     program: "Fullstack Development",

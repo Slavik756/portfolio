@@ -12,7 +12,7 @@ import {
   Layers3,
   Sparkles,
 } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTelegramPlane } from "react-icons/fa";
 
 import { useLanguage } from "@/i18n/LanguageProvider";
 
@@ -180,6 +180,16 @@ export default function Hero() {
               className="social-link"
             >
               <FaLinkedin size={20} />
+            </a>
+
+            <a
+              href="https://t.me/hejsar"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Telegram — @hejsar"
+              className="social-link"
+            >
+              <FaTelegramPlane size={20} />
             </a>
 
             <span className="mx-2 h-6 w-px bg-white/10" />

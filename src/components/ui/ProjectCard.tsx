@@ -166,6 +166,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <motion.article
+      id={`project-${project.id}`}
       initial={reducedMotion ? false : { opacity: 0, y: 35 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}

@@ -92,10 +92,8 @@ export default function Header() {
           duration: 0.7,
           ease: "easeOut",
         }}
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "border-b border-white/10 bg-[#080b0a]/85 shadow-lg shadow-black/20 backdrop-blur-xl"
-            : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter] duration-300 ${
+          scrolled ? "bg-[#080b0a]/95 backdrop-blur-xl" : "bg-transparent"
         }`}
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-10">

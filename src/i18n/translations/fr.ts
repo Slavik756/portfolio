@@ -34,13 +34,13 @@ export const fr: typeof en = {
     headingAccent: "passion et précision.",
 
     paragraphs: [
-      "Je m'appelle Viacheslav. Je suis développeur web basé à Perpignan, en France, et passionné par la création d'applications modernes, intuitives et adaptées aux utilisateurs.",
+      "Je m'appelle Viacheslav. Je suis développeur Fullstack basé à Perpignan, en France. Je crée des applications web modernes en travaillant aussi bien sur les interfaces utilisateur que sur les fonctionnalités côté serveur.",
 
-      "Je me concentre principalement sur le développement frontend avec React, Next.js et TypeScript. Je travaille également avec des technologies backend comme Node.js, Express, Java, Spring Boot et PostgreSQL.",
+      "Ma spécialité principale est le développement Fullstack. Côté frontend, j'utilise React, Next.js, TypeScript et Tailwind CSS. Côté backend, je travaille avec Node.js, Express, Java, Spring Boot, PostgreSQL et MongoDB.",
 
-      "J'ai de l'expérience dans les projets en équipe, le développement d'API REST, la gestion de bases de données et la création d'interfaces web adaptatives.",
+      "J'ai de l'expérience dans le développement de projets personnels et le travail en équipe. J'ai notamment travaillé sur des API REST, des bases de données, des systèmes d'authentification, des interfaces d'administration et des applications web responsives.",
 
-      "Je continue à développer mes compétences et je recherche des opportunités pour contribuer à des projets concrets et innovants.",
+      "J'ai contribué aux projets Elvira Nails, Verdora et Tasteorama, tout en développant mes propres applications. Je continue à perfectionner mes compétences et je souhaite évoluer en tant que développeur Fullstack.",
     ],
 
     githubButton: "Découvrir mon GitHub",
@@ -52,8 +52,8 @@ export const fr: typeof en = {
       },
 
       teamwork: {
-        title: "Travail en équipe",
-        description: "Projets collaboratifs, Git et revues de code",
+        title: "Projets concrets",
+        description: "Développement de projets personnels et collaboratifs",
       },
 
       learning: {
@@ -144,6 +144,44 @@ export const fr: typeof en = {
           "Intégration de Payload CMS",
           "Gestion de contenu multilingue",
           "PostgreSQL et Prisma",
+        ],
+      },
+      watchcharm: {
+        category: "Site web responsive",
+        description:
+          "Un site vitrine de montres développé en équipe, présentant des collections de produits, des offres promotionnelles et une mise en page adaptée aux différents écrans.",
+        role: "Développeur Frontend",
+        highlights: [
+          "Design responsive",
+          "Travail en équipe",
+          "Catalogue de produits",
+          "HTML sémantique",
+        ],
+      },
+
+      stackers: {
+        category: "Portfolio interactif",
+        description:
+          "Un portfolio JavaScript réalisé en équipe, avec personnalisation des thèmes, composants interactifs, carrousels et interface responsive.",
+        role: "Développeur Frontend",
+        highlights: [
+          "Thèmes clair et sombre",
+          "Personnalisation des couleurs",
+          "Composants interactifs",
+          "Design responsive",
+        ],
+      },
+
+      "you-my-heart": {
+        category: "Expérience interactive React",
+        description:
+          "Une expérience web créative intégrant des animations Canvas, des commandes audio, des galeries de photos et une interface adaptée aux mobiles.",
+        role: "Développeur Frontend",
+        highlights: [
+          "Composants React",
+          "Animations Canvas",
+          "Commandes audio",
+          "Interfaces responsives",
         ],
       },
     },

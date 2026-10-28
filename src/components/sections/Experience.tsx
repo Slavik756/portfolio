@@ -106,19 +106,15 @@ function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }
           ))}
         </div>
 
-        {/* Repository */}
-        {item.link && (
-          <a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-emerald-400 transition-colors hover:text-emerald-300"
-          >
-            {t.experienceSection.viewProject}
+        {/* View project */}
+        <a
+          href={`#project-${item.id}`}
+          className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-emerald-400 transition-colors hover:text-emerald-300"
+        >
+          {t.experienceSection.viewProject}
 
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
-        )}
+          <ArrowUpRight size={16} aria-hidden="true" />
+        </a>
       </div>
     </motion.article>
   );

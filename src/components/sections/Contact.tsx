@@ -5,11 +5,16 @@ import { motion, useReducedMotion } from "motion/react";
 
 import { ArrowDownToLine, ArrowRight, ArrowUpRight, Check, Copy, Mail, MapPin } from "lucide-react";
 
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaTelegramPlane } from "react-icons/fa";
 
 import { useLanguage } from "@/i18n/LanguageProvider";
 
 const email = "slavikpokora567@gmail.com";
+
+const gmailComposeUrl =
+  `https://mail.google.com/mail/?view=cm&fs=1` +
+  `&to=${encodeURIComponent(email)}` +
+  `&su=${encodeURIComponent("Portfolio — Contact Request")}`;
 
 const contactLinks = [
   {
@@ -23,6 +28,12 @@ const contactLinks = [
     username: "Viacheslav Pokora",
     href: "https://www.linkedin.com/in/viacheslav-pokora-1971a8350/",
     icon: FaLinkedinIn,
+  },
+  {
+    name: "Telegram",
+    username: "@hejsar",
+    href: "https://t.me/hejsar",
+    icon: FaTelegramPlane,
   },
 ];
 
@@ -129,7 +140,9 @@ export default function Contact() {
             {/* Main buttons */}
             <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href={`mailto:${email}`}
+                href={gmailComposeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 rounded-xl bg-emerald-400 px-5 py-3.5 text-sm font-semibold text-[#07110c] transition-all hover:-translate-y-0.5 hover:bg-emerald-300"
               >
                 <Mail size={18} aria-hidden="true" />
@@ -190,7 +203,9 @@ export default function Contact() {
             </p>
 
             <a
-              href={`mailto:${email}`}
+              href={gmailComposeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 block text-sm font-medium break-all text-emerald-400 transition-colors hover:text-emerald-300 sm:text-base"
             >
               {email}
