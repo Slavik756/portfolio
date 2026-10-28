@@ -1,0 +1,117 @@
+/* =========================================
+   BACKGROUND GRID
+========================================= */
+
+.background-grid {
+  z-index: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+  background-size: 60px 60px;
+
+  mask-image: linear-gradient(to bottom, black 0%, black 20%, transparent 95%);
+}
+
+/* =========================================
+   AMBIENT LIGHTING
+========================================= */
+
+.glow {
+  position: absolute;
+  z-index: 0;
+
+  width: 650px;
+  height: 650px;
+
+  pointer-events: none;
+
+  border-radius: 50%;
+
+  filter: blur(140px);
+}
+
+.glow-one {
+  top: 100px;
+  right: -280px;
+
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.glow-two {
+  top: 850px;
+  left: -300px;
+
+  background: rgba(16, 185, 129, 0.07);
+}
+
+/* =========================================
+   GRADIENT TYPOGRAPHY
+========================================= */
+
+.gradient-text {
+  background: linear-gradient(110deg, #a7f3d0 0%, #34d399 45%, #059669 100%);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* =========================================
+   CODE EDITOR
+========================================= */
+
+.code-window {
+  position: relative;
+
+  border: 1px solid rgba(52, 211, 153, 0.22);
+
+  background: linear-gradient(145deg, rgba(25, 34, 29, 0.98), rgba(9, 14, 12, 0.99));
+
+  box-shadow:
+    0 35px 110px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(16, 185, 129, 0.07);
+}
+
+/* Subtle light reflection */
+
+.code-window::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 45%);
+}
+
+/* =========================================
+   RESPONSIVE LIGHTING
+========================================= */
+
+@media (max-width: 768px) {
+  .glow {
+    width: 350px;
+    height: 350px;
+
+    filter: blur(100px);
+  }
+
+  .glow-one {
+    top: 100px;
+    right: -180px;
+  }
+
+  .glow-two {
+    top: 700px;
+    left: -180px;
+  }
+
+  .background-grid {
+    background-size: 45px 45px;
+  }
+}
