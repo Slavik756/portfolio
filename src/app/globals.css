@@ -3,3 +3,96 @@
 @import "../styles/components.css";
 @import "../styles/effects.css";
 @import "../styles/accessibility.css";
+
+/* =========================================
+   PORTFOLIO V2 — DESIGN SYSTEM
+========================================= */
+
+:root {
+  --background: #080b0a;
+  --foreground: #f4f4f5;
+
+  --accent: #34d399;
+  --accent-light: #6ee7b7;
+  --accent-dark: #059669;
+
+  --surface: #101413;
+  --surface-hover: #151d19;
+
+  --border: rgba(255, 255, 255, 0.1);
+
+  --muted: #a1a1aa;
+
+  --font-main: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  --font-code: var(--font-geist-mono), monospace;
+}
+
+/* =========================================
+   BASE
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: var(--font-main);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+section[id] {
+  scroll-margin-top: 110px;
+}
+
+/* =========================================
+   TEXT SELECTION
+========================================= */
+
+::selection {
+  background: var(--accent);
+  color: #080b0a;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080b0a;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid #080b0a;
+  border-radius: 10px;
+
+  background: #244638;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #34d399;
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}

@@ -1,4 +1,6 @@
-/* Background grid */
+/* =========================================
+   BACKGROUND GRID
+========================================= */
 
 .background-grid {
   z-index: 0;
@@ -7,59 +9,109 @@
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 
-  background-size: 55px 55px;
+  background-size: 60px 60px;
 
-  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  mask-image: linear-gradient(to bottom, black 0%, black 20%, transparent 95%);
 }
 
-/* Ambient glow */
+/* =========================================
+   AMBIENT LIGHTING
+========================================= */
 
 .glow {
   position: absolute;
   z-index: 0;
 
-  width: 500px;
-  height: 500px;
+  width: 650px;
+  height: 650px;
 
   pointer-events: none;
+
   border-radius: 50%;
 
-  filter: blur(130px);
+  filter: blur(140px);
 }
 
 .glow-one {
   top: 100px;
-  right: -200px;
+  right: -280px;
 
-  background: rgba(16, 185, 129, 0.09);
+  background: rgba(16, 185, 129, 0.12);
 }
 
 .glow-two {
-  top: 700px;
-  left: -250px;
+  top: 850px;
+  left: -300px;
 
-  background: rgba(16, 185, 129, 0.05);
+  background: rgba(16, 185, 129, 0.07);
 }
 
-/* Gradient text */
+/* =========================================
+   GRADIENT TYPOGRAPHY
+========================================= */
 
 .gradient-text {
-  background: linear-gradient(110deg, var(--accent-light), var(--accent), var(--accent-dark));
+  background: linear-gradient(110deg, #a7f3d0 0%, #34d399 45%, #059669 100%);
 
   background-clip: text;
   -webkit-background-clip: text;
 
+  -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
-/* Code editor window */
+/* =========================================
+   CODE EDITOR
+========================================= */
 
 .code-window {
-  border: 1px solid rgba(52, 211, 153, 0.17);
+  position: relative;
 
-  background: linear-gradient(145deg, rgba(25, 32, 29, 0.96), rgba(11, 16, 14, 0.98));
+  border: 1px solid rgba(52, 211, 153, 0.22);
+
+  background: linear-gradient(145deg, rgba(25, 34, 29, 0.98), rgba(9, 14, 12, 0.99));
 
   box-shadow:
-    0 30px 100px rgba(0, 0, 0, 0.5),
-    0 0 70px rgba(16, 185, 129, 0.05);
+    0 35px 110px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(16, 185, 129, 0.07);
+}
+
+/* Subtle light reflection */
+
+.code-window::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 45%);
+}
+
+/* =========================================
+   RESPONSIVE LIGHTING
+========================================= */
+
+@media (max-width: 768px) {
+  .glow {
+    width: 350px;
+    height: 350px;
+
+    filter: blur(100px);
+  }
+
+  .glow-one {
+    top: 100px;
+    right: -180px;
+  }
+
+  .glow-two {
+    top: 700px;
+    left: -180px;
+  }
+
+  .background-grid {
+    background-size: 45px 45px;
+  }
 }

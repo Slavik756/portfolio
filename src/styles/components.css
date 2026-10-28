@@ -1,16 +1,24 @@
-/* Shared buttons */
+/* =========================================
+   SHARED BUTTONS
+========================================= */
 
 .primary-button,
 .secondary-button {
+  position: relative;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
 
-  padding: 15px 25px;
-  border-radius: 10px;
+  min-height: 48px;
+
+  padding: 14px 24px;
+
+  border-radius: 12px;
 
   font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
 
   transition:
@@ -20,46 +28,91 @@
     box-shadow 0.3s ease;
 }
 
-/* Primary button */
+/* =========================================
+   PRIMARY BUTTON
+========================================= */
 
 .primary-button {
-  background: var(--accent);
+  border: 1px solid rgba(167, 243, 208, 0.4);
+
+  background: linear-gradient(135deg, #6ee7b7, #34d399);
+
   color: #06100b;
-  font-weight: 600;
+
+  box-shadow:
+    0 6px 25px rgba(52, 211, 153, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .primary-button:hover {
-  background: var(--accent-light);
   transform: translateY(-3px);
-  box-shadow: 0 10px 35px rgba(52, 211, 153, 0.18);
+
+  background: linear-gradient(135deg, #a7f3d0, #6ee7b7);
+
+  box-shadow:
+    0 12px 35px rgba(52, 211, 153, 0.25),
+    0 0 25px rgba(52, 211, 153, 0.1);
 }
 
-/* Secondary button */
+/* =========================================
+   SECONDARY BUTTON
+========================================= */
 
 .secondary-button {
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: rgba(255, 255, 255, 0.035);
+
   color: #e4e4e7;
-  font-weight: 500;
+
+  backdrop-filter: blur(12px);
 }
 
 .secondary-button:hover {
-  border-color: rgba(52, 211, 153, 0.5);
-  background: rgba(52, 211, 153, 0.06);
   transform: translateY(-3px);
+
+  border-color: rgba(52, 211, 153, 0.4);
+
+  background: rgba(52, 211, 153, 0.07);
+
+  color: #ffffff;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Social links */
+/* =========================================
+   SOCIAL LINKS
+========================================= */
 
 .social-link {
-  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #a1a1aa;
 
   transition:
     color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
     transform 0.3s ease;
 }
 
 .social-link:hover {
-  color: var(--accent);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+
+  border-color: rgba(52, 211, 153, 0.35);
+
+  background: rgba(52, 211, 153, 0.08);
+
+  color: #34d399;
 }
