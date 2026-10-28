@@ -31,7 +31,7 @@ const seoContent = {
       "Explore the portfolio of Viacheslav Pokora, a Junior Frontend and Fullstack Developer based in France. Discover my projects, technical skills, experience and education.",
     openGraphTitle: "Viacheslav Pokora | Developer Portfolio",
     openGraphDescription:
-      "Frontend & Fullstack Developer. React, Next.js, TypeScript, Node.js and modern web development.",
+      "Explore the portfolio of Viacheslav Pokora, a Junior Fullstack Developer based in France. Discover real-world projects built with React, Next.js, TypeScript, Node.js, Java and Spring Boot.",
     openGraphLocale: "en_US",
   },
 
@@ -41,7 +41,7 @@ const seoContent = {
       "Découvrez le portfolio de Viacheslav Pokora, développeur junior Frontend et Fullstack basé en France. Explorez mes projets, compétences techniques, expériences et formations.",
     openGraphTitle: "Viacheslav Pokora | Portfolio Développeur",
     openGraphDescription:
-      "Développeur Frontend et Fullstack en France. React, Next.js, TypeScript, Node.js et développement web moderne.",
+      "Découvrez le portfolio de Viacheslav Pokora, développeur Fullstack junior basé en France. Explorez ses projets réalisés avec React, Next.js, TypeScript, Node.js, Java et Spring Boot.",
     openGraphLocale: "fr_FR",
   },
 
@@ -51,7 +51,7 @@ const seoContent = {
       "Портфоліо В'ячеслава Покори — Junior Frontend та Fullstack-розробника у Франції. Перегляньте мої проєкти, технічні навички, досвід роботи та освіту.",
     openGraphTitle: "Viacheslav Pokora | Портфоліо розробника",
     openGraphDescription:
-      "Frontend та Fullstack-розробник у Франції. React, Next.js, TypeScript, Node.js і сучасна веброзробка.",
+      "Перегляньте портфоліо В'ячеслава Покори, Junior Fullstack-розробника у Франції. Дізнайтеся більше про його проєкти, досвід роботи та технології React, Next.js, TypeScript, Node.js, Java і Spring Boot.",
     openGraphLocale: "uk_UA",
   },
 } as const;
