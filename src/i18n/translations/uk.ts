@@ -80,6 +80,18 @@ export const uk: typeof en = {
     backend: "Backend",
     liveDemo: "Переглянути сайт",
     featured: "ОБРАНИЙ ПРОЄКТ",
+    recognition: {
+      label: "ВИЗНАННЯ В OPEN SOURCE",
+
+      title: "Мій внесок у XERJ Corpus Hub",
+
+      description:
+        "Мій внесок у командний проєкт Elvira Nails — API послуг та українська локалізація — відібрали для XERJ Corpus Hub, відкритого індексу прикладів коду для ШІ-агентів.",
+
+      viewContribution: "Переглянути внесок",
+
+      viewRepository: "Переглянути репозиторій",
+    },
 
     items: {
       tasteorama: {

@@ -78,6 +78,18 @@ export const en = {
     backend: "Backend",
     liveDemo: "Live Demo",
     featured: "FEATURED",
+    recognition: {
+      label: "OPEN-SOURCE RECOGNITION",
+
+      title: "Included in XERJ Corpus Hub",
+
+      description:
+        "My contribution to the Elvira Nails team project — a Services API and Ukrainian localization — was selected for inclusion in XERJ Corpus Hub, a public code reference index for AI coding agents.",
+
+      viewContribution: "View contribution",
+
+      viewRepository: "View GitHub repository",
+    },
 
     items: {
       tasteorama: {

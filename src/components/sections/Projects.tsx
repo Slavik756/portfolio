@@ -5,6 +5,7 @@ import { ArrowUpRight, FolderGit2 } from "lucide-react";
 
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projects } from "@/data/projects";
+import XERJRecognition from "@/components/ui/XERJRecognition";
 import { useLanguage } from "@/i18n/LanguageProvider";
 
 export default function Projects() {
@@ -53,6 +54,8 @@ export default function Projects() {
           </a>
         </div>
       </motion.div>
+
+      <XERJRecognition />
 
       <div className="grid items-stretch gap-7 lg:grid-cols-2">
         {projects.map((project, index) => {
