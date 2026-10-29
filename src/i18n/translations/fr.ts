@@ -334,6 +334,9 @@ export const fr: typeof en = {
           "Formation pratique terminée en JavaScript, React, Node.js, API REST, bases de données et développement web en équipe.",
       },
     },
+    showDetails: "Réalisations et technologies",
+    hideDetails: "Masquer les réalisations et technologies",
+    technologiesUsed: "Technologies utilisées",
   },
 
   contactSection: {

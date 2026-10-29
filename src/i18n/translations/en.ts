@@ -322,6 +322,9 @@ export const en = {
           "Completed practical training in JavaScript, React, Node.js, REST APIs, databases and team-based web development.",
       },
     },
+    showDetails: "Achievements & Technologies",
+    hideDetails: "Hide Achievements & Technologies",
+    technologiesUsed: "Technologies Used",
   },
 
   contactSection: {

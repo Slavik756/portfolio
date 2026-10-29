@@ -1,13 +1,17 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 import {
   ArrowUpRight,
   BriefcaseBusiness,
   CalendarDays,
   CheckCircle2,
+  ChevronDown,
+  Code2,
   GraduationCap,
+  ListChecks,
   MapPin,
   Sparkles,
 } from "lucide-react";
@@ -16,9 +20,15 @@ import { experiences, education, type ExperienceItem, type EducationItem } from 
 
 import { useLanguage } from "@/i18n/LanguageProvider";
 
+// ==========================================
+// EXPERIENCE CARD
+// ==========================================
+
 function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }) {
   const reducedMotion = useReducedMotion();
   const { t } = useLanguage();
+
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <motion.article
@@ -45,8 +55,9 @@ function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }
         aria-hidden="true"
       />
 
+      {/* Main card */}
       <div className="rounded-2xl border border-white/10 bg-[#101413] p-6 transition-all duration-300 hover:border-emerald-400/30 hover:bg-[#131a17] sm:p-8">
-        {/* Top row */}
+        {/* Period and status */}
         <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
           <span className="inline-flex items-center gap-2 font-mono text-xs text-emerald-400">
             <CalendarDays size={14} aria-hidden="true" />
@@ -76,34 +87,114 @@ function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }
         {/* Description */}
         <p className="mt-6 text-sm leading-7 text-zinc-400">{item.description}</p>
 
-        {/* Achievements */}
-        <div className="mt-7 space-y-3">
-          {item.achievements.map((achievement, achievementIndex) => (
-            <div
-              key={achievementIndex}
-              className="flex items-start gap-3 text-sm leading-6 text-zinc-400"
-            >
-              <CheckCircle2
-                size={16}
-                className="mt-1 shrink-0 text-emerald-400"
-                aria-hidden="true"
-              />
+        {/* ======================================
+            EXPANDABLE DETAILS
+        ====================================== */}
 
-              <span>{achievement}</span>
-            </div>
-          ))}
-        </div>
+        <div className="mt-7 border-y border-white/10">
+          {/* Toggle button */}
+          <button
+            id={`experience-toggle-${item.id}`}
+            type="button"
+            onClick={() => setIsExpanded((previous) => !previous)}
+            aria-expanded={isExpanded}
+            aria-controls={`experience-details-${item.id}`}
+            className="group flex w-full cursor-pointer items-center justify-between gap-4 rounded-md py-4 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400"
+          >
+            <span className="flex items-center gap-3">
+              <ListChecks size={19} className="shrink-0 text-emerald-400" aria-hidden="true" />
 
-        {/* Technologies */}
-        <div className="mt-8 flex flex-wrap gap-2">
-          {item.technologies.map((technology) => (
-            <span
-              key={technology}
-              className="rounded-md border border-white/10 bg-white/[0.035] px-3 py-1.5 font-mono text-[11px] text-zinc-400"
-            >
-              {technology}
+              <span className="text-sm font-medium text-zinc-200 transition-colors group-hover:text-emerald-400">
+                {isExpanded ? t.experienceSection.hideDetails : t.experienceSection.showDetails}
+              </span>
             </span>
-          ))}
+
+            {/* Animated arrow */}
+            <ChevronDown
+              size={19}
+              aria-hidden="true"
+              className={`shrink-0 text-emerald-400 transition-transform duration-300 ${
+                isExpanded ? "rotate-180" : "rotate-0"
+              }`}
+            />
+          </button>
+
+          {/* Animated content */}
+          <div id={`experience-details-${item.id}`}>
+            <AnimatePresence initial={false}>
+              {isExpanded && (
+                <motion.div
+                  key="details"
+                  role="region"
+                  aria-labelledby={`experience-toggle-${item.id}`}
+                  initial={reducedMotion ? false : { height: 0, opacity: 0 }}
+                  animate={{
+                    height: "auto",
+                    opacity: 1,
+                  }}
+                  exit={{
+                    height: 0,
+                    opacity: 0,
+                  }}
+                  transition={{
+                    duration: reducedMotion ? 0 : 0.32,
+                    ease: "easeInOut",
+                  }}
+                  className="overflow-hidden"
+                >
+                  <div className="border-t border-white/10 pt-5 pb-6">
+                    {/* ======================
+                        ACHIEVEMENTS
+                    ====================== */}
+
+                    <div className="space-y-4 border-l-2 border-emerald-400/40 pl-4">
+                      {item.achievements.map((achievement, achievementIndex) => (
+                        <div
+                          key={achievementIndex}
+                          className="flex items-start gap-3 text-sm leading-6 text-zinc-400"
+                        >
+                          <CheckCircle2
+                            size={17}
+                            className="mt-1 shrink-0 text-emerald-400"
+                            aria-hidden="true"
+                          />
+
+                          <span>{achievement}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* ======================
+                        TECHNOLOGIES
+                    ====================== */}
+
+                    <div className="mt-6 border-t border-white/10 pt-5">
+                      {/* Technologies title */}
+                      <div className="mb-4 flex items-center gap-3">
+                        <Code2 size={18} className="text-emerald-400" aria-hidden="true" />
+
+                        <h4 className="text-sm font-semibold text-zinc-200">
+                          {t.experienceSection.technologiesUsed}
+                        </h4>
+                      </div>
+
+                      {/* Technologies badges */}
+                      <div className="flex flex-wrap gap-2">
+                        {item.technologies.map((technology) => (
+                          <span
+                            key={technology}
+                            className="rounded-lg border border-emerald-400/15 bg-emerald-400/[0.055] px-3 py-1.5 font-mono text-[11px] text-zinc-300 transition-colors hover:border-emerald-400/35 hover:bg-emerald-400/10 hover:text-emerald-300"
+                          >
+                            {technology}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* View project */}
@@ -119,6 +210,10 @@ function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }
     </motion.article>
   );
 }
+
+// ==========================================
+// EDUCATION CARD
+// ==========================================
 
 function EducationCard({ item, index }: { item: EducationItem; index: number }) {
   const reducedMotion = useReducedMotion();
@@ -202,6 +297,10 @@ function EducationCard({ item, index }: { item: EducationItem; index: number }) 
     </motion.article>
   );
 }
+
+// ==========================================
+// EXPERIENCE SECTION
+// ==========================================
 
 export default function Experience() {
   const reducedMotion = useReducedMotion();

@@ -333,6 +333,9 @@ export const uk: typeof en = {
           "Завершив практичне навчання з JavaScript, React, Node.js, REST API, баз даних і командної веброзробки.",
       },
     },
+    showDetails: "Досягнення та технології",
+    hideDetails: "Приховати досягнення та технології",
+    technologiesUsed: "Використані технології",
   },
 
   contactSection: {

@@ -52,7 +52,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-section[id],
+section[id] {
+  scroll-margin-top: 32px;
+}
+
 article[id] {
   scroll-margin-top: 110px;
 }
